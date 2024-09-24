@@ -1,0 +1,359 @@
+$font-size-base: 1.1rem;
+
+@font-face {
+    font-family: 'Keep on Truckin';
+    src: url('../assets/KeeponTruckin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.btn-default{
+    border: 4px solid #D500FF;
+    background-color:#282828;
+    padding: 15px 30px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 700
+}
+
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background-color: #282828;
+    color: #FFFFFF;
+}
+
+
+.page{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 70px auto;
+    .logo{
+        position: relative;
+        h1{
+            font-family: 'Keep on Truckin', sans-serif;
+            margin-bottom: 40px; //
+            max-width: 200px; ///
+            text-align: center; //
+            font-weight: 700;
+            font-size: 45px;
+            text-shadow: 
+            -1px -1px 0 #D500FF,  
+            1px -1px 0 #D500FF,
+            -1px 1px 0 #D500FF,
+            1px 1px 0 #D500FF;  
+        }
+        .star {
+            position: absolute;
+            animation: sparkle 5s infinite;
+        }
+        
+        /* Позиционируй звёздочки как тебе нужно */
+        .star:nth-child(2) {
+            top: 100px;
+            left: -10px;
+        }
+        
+        .star:nth-child(3) {
+            top: -30px;
+            left: -30px;
+        }
+        
+        .star:nth-child(4) {
+            top: 30px;
+            right: -45px;
+        }
+    }
+    p{
+        margin-bottom: 80px;
+        font-weight: 600;
+        max-width: 40vw;
+    }
+    .buttons{
+        display: flex;
+        gap: 50px;
+    }
+}
+
+
+
+@keyframes sparkle {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px #FFFFFF);
+        opacity: 1;
+    }
+    50% {
+        filter: drop-shadow(0 0 10px #D500FF);
+        opacity: 1;
+    }
+}
+
+
+.message{
+    border: 4px solid #D500FF;
+    border-radius: 10px;
+    padding: 20px;
+    width: fit-content;
+    .msg-title{
+        text-shadow: 
+        -1px -1px 0 #6E1181,  
+        1px -1px 0 #6E1181,
+        -1px 1px 0 #6E1181,
+        1px 1px 0 #6E1181;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .msg-text{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .user_date{
+            font-weight: 600;
+        }
+        .deleteBtn{
+            width: fit-content;
+        }
+    }
+}
+
+.formWrapper{
+    h2{
+        margin-bottom: 50px;
+        font-weight: 700;
+        font-size: 32px;
+        text-shadow: 
+        -1px -1px 0 #D500FF,  
+        1px -1px 0 #D500FF,
+        -1px 1px 0 #D500FF,
+        1px 1px 0 #D500FF;  
+        text-align: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        margin: 0 auto;
+        border: 4px solid #D500FF;
+        border-radius: 10px;
+        padding: 50px;
+        .form-group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 20px;
+            label{
+                font-weight: 700;
+                font-size: 1rem;
+            }
+            .form-control{
+                max-width: 300px;
+            }
+        }
+        button{
+            margin: 0 auto;
+        }
+        .specialPwd{
+            margin-top: 60px;
+            .starred-label {
+                position: relative;
+            }
+            .starred-label::before {
+                content: "*";
+                color: #D500FF;
+                font-size: 16px;
+                font-weight: bold;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+            }
+            .starred-left {
+                position: relative;
+                max-width: 450px;
+                margin-top: 50px;
+                font-size: 14px;
+            }
+            .starred-left::after {
+                content: "*";
+                color: #D500FF;
+                font-size: 16px;
+                font-weight: bold;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+            }
+        }
+    }
+}
+
+.logOutWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 40px;
+    align-items: baseline;
+    justify-content: space-between;
+    a{
+        font-weight: 700;
+        font-size: 32px;
+        text-shadow: -1px -1px 0 #D500FF, 1px -1px 0 #D500FF, -1px 1px 0 #D500FF, 1px 1px 0 #D500FF;
+        color: #FFF;
+    }
+    h3{
+        margin-bottom: 50px;
+        font-weight: 700;
+        font-size: 32px;
+        text-shadow: -1px -1px 0 #D500FF, 1px -1px 0 #D500FF, -1px 1px 0 #D500FF, 1px 1px 0 #D500FF;
+    }
+}
+
+.postMessage{
+    border-left: 4px solid #ffffff;
+    width: fit-content;
+    form{
+        border-radius: 0;
+        border: none;
+    }
+}
+
+.messageboardWrapper{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    .messages{
+        .message{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+button > a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1000px) {
+    .welcomePage{
+        p{
+            max-width: 90vw;
+        }
+    }
+    .page{
+        .logo{
+            h1{
+                font-size: 34px;
+            }
+            .star{
+                img{
+                    width: 35px;
+                }
+            }
+            .star:nth-child(2) {
+                top: 100px;
+                left: 20px;
+            }
+            
+            .star:nth-child(3) {
+                top: -30px;
+                left: 0px;
+            }
+            
+            .star:nth-child(4) {
+                top: 30px;
+                right: -10px;
+            }
+        }
+    }
+    .signUpPage{
+        .formWrapper{
+            width: 60vw;
+            form{
+                padding: 30px; //
+                .form-group{
+                    .form-control{
+                        max-width: 250px; //
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .signUpPage, .logInPage{
+        .formWrapper{
+            width: 80vw;
+            form{
+                padding: 30px; //
+                .form-group{
+                    gap: 20px;
+                    margin-bottom: 15px;
+                    .form-control{
+                        max-width: 250px; //
+                    }
+                }
+            }
+        }
+    }
+
+    .logOutWrapper{
+        flex-direction: column;
+        h3{
+            font-size: 23px;
+        }
+    }
+    // .messageboardWrapper{
+    //     width: 90vw;
+    //     flex-direction: column-reverse;
+    // }
+}
+
+@media (max-width: 1000px) {
+    .messageboardWrapper{
+        width: 80vw;
+        flex-direction: column-reverse;
+        .messages{
+            .message{
+                margin-bottom: 10px;
+                    .msg-text{
+                        max-width: 90%;
+                    }
+            }
+        }
+    }
+    .messageFormWrapper{
+        .formWrapper{
+            width: 80vw;
+            form{
+                padding: 30px; //
+                .form-group{
+                    gap: 20px;
+                    margin-bottom: 15px;
+                    justify-content: flex-start;
+                    .form-control{
+                        max-width: 250px; //
+                    }
+                    textarea{
+                        max-width: 60%;
+                    }
+                }
+            }
+
+            h2{
+                font-size: 26px;
+                margin-bottom: 0px;
+            }
+            form{
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

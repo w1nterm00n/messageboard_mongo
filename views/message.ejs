@@ -1,0 +1,15 @@
+<div class="message">
+    <span class="msg-title"> <%= title %> </span>
+    <p class="msg-text"> <%= text %> </p>
+
+    <div>
+        <% if (user && typeof date !== 'undefined') {%>
+            <span class="user_date"> <%= user %>, <%= date %> </span>
+        <% }%>
+        <% if (typeof id_message !== 'undefined') {%>
+            <button class="deleteBtn btn-default"> 
+                <a href="/message/delete/<%= id_message %>">Delete</a>
+            </button>
+        <% }%>
+    </div>
+</div>

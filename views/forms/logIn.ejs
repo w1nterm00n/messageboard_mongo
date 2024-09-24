@@ -1,0 +1,16 @@
+<div class="logIn formWrapper">
+    <h2>Log in</h2>
+    <form action="/user/auth" method="POST">
+        <div class="form-group">
+          <label for="username">nickname</label>
+          <input type="text" class="form-control" name="username" aria-describedby="nicknameInput">
+        </div>
+        <div class="form-group">
+          <label for="password">password</label>
+          <input type="password" class="form-control" name="password">
+        </div>
+        <%- include("../partials/errors.ejs") %>
+
+        <button type="submit" class="btn-default">Submit</button>
+    </form>
+</div>

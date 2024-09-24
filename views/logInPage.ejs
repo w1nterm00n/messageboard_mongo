@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+    </head>
+    <body>
+        <div class="logInPage page">
+            <div class="logo">
+                <h1>Secret Message Club</h1>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+            </div>
+
+            <%- include('forms/logIn') %>
+            
+            <% if (messages.length > 0) { %>
+                <ul>
+                    <% messages.forEach(function(message) { %>
+                        <li><%= message %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+            <button type="button" class="btn btn-primary" id="liveToastBtn" style="display: none;">Show toast</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header" style="background-color: #D500FF;">
+                        <span>...</span>
+                        <strong class="me-auto">Secret Message Club</strong>
+                        <small>now</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                                Congrats! You've successfully signed up!
+                        </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script>
+            //logic to show toast
+            const toastTrigger = document.getElementById('liveToastBtn');
+            const toastLiveExample = document.getElementById('liveToast');
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+            const showToast = getQueryParam('showToast');
+
+            if (showToast === 'true') {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+                toastBootstrap.show();
+            }
+        </script>
+    </body>
+</html>

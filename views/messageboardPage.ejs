@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+    </head>
+    <body>
+        <div class="messageboardPage page">
+            <div class="logo">
+                <h1>Secret Message Club</h1>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+                <span class="star">
+                    <img src="/assets/star-vector.svg" alt="star">
+                </span>
+            </div>
+            
+            <div class="logOutWrapper">
+                <a href="/log-out">Log out</a>
+                <% if (user) {%>
+                    <h3>WELCOME BACK, <%= user.nickname %></h3>
+                <% } else { %>
+                    <h3>WELCOME BACK</h3>
+                <%}%>
+            </div>
+
+            <div class="messageboardWrapper">
+
+                <div class="messages">
+                    <% if (messages) { %>
+                        <% if (user.membership == 'admin') { %>
+                            <% messages.slice().reverse().forEach(message => { %>
+                                <%- include('message', { id_message: message._id, title: message.title, text: message.text, user: message.nickname, date: message.date }) %>
+                            <% }) %>
+                        <% } else if (user.membership == 'member') { %>
+                            <% messages.slice().reverse().forEach(message => { %>
+                                <%- include('message', { title: message.title, text: message.text, user: message.nickname, date: message.date }) %>
+                            <% }) %>
+                        <% } else { %>
+                            <% messages.slice().reverse().forEach(message => { %>
+                                <%- include('message', { title: message.title, text: message.text }) %>
+                            <% }) %>
+                        <% } %>
+                    <% } else { %>
+                        <h3>No messages yet</h3>
+                    <% } %>
+                </div>
+                
+                <div class="messageFormWrapper">
+                    <%- include('forms/postMessage') %>
+                </div>
+            
+            </div>
+
+        </div>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<div class="SignUp formWrapper">
+    <h2>Sign up</h2>
+    <form action="/user/create" method="POST">
+        <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group">
+          <label for="surname">surname</label>
+          <input type="text" class="form-control" name="surname">
+        </div>
+        <div class="form-group">
+            <label for="nickname">nickname</label>
+            <input type="text" class="form-control" name="nickname">
+          </div>
+        <div class="form-group">
+            <label for="pwd">password</label>
+            <input type="password" class="form-control" name="pwd">
+          </div>
+        <div class="form-group">
+            <label for="pwdRepeat">repeat password</label>
+            <input type="password" class="form-control" name="pwdRepeat">
+          </div>
+
+          <%- include("../partials/errors.ejs") %>
+
+          <div class="specialPwd">
+            <div class="form-group">
+                <label for="adminPwd" class="starred-label">admin password</label>
+                <input type="password" class="form-control" name="adminPwd">
+            </div>
+            <div class="form-group">
+                <label for="memberPwd" class="starred-label">member password</label>
+                <input type="password" class="form-control" name="memberPwd">
+            </div>
+            <p class="starred-left">if you know the admin password, or member password, fill out the fields. If not - just leave it empty</p>
+        </div>
+
+        <button type="submit" class="btn-default">Submit</button>
+    </form>
+</div>
